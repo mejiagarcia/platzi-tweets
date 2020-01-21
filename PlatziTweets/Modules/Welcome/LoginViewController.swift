@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func loginButtonAction() {
+        view.endEditing(true)
         performLogin()
     }
     
@@ -38,5 +39,15 @@ class LoginViewController: UIViewController {
             
             return
         }
+        
+        guard let password = passwordTextField.text, !password.isEmpty else {
+            NotificationBanner(title: "Error", subtitle: "Debes especificar una contraseña.", style: .warning).show()
+            
+            return
+        }
+        
+        performSegue(withIdentifier: "showHome", sender: nil)
+        
+        // Iniciar sesión aquí!
     }
 }

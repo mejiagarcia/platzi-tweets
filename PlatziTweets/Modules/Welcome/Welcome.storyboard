@@ -132,6 +132,9 @@
                                         <state key="normal" title="Registro">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="registerButtonAction" destination="cvg-dh-UYU" eventType="touchUpInside" id="uYk-c0-PfU"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -155,12 +158,24 @@
                     </view>
                     <navigationItem key="navigationItem" title="Registro" id="Uub-Qf-do2"/>
                     <connections>
+                        <outlet property="emailTextField" destination="5XW-Cv-HpB" id="kEL-CS-2O8"/>
+                        <outlet property="namesTextField" destination="GVd-h3-ma8" id="U8J-D5-KKv"/>
+                        <outlet property="passwordTextField" destination="fTD-1D-3Fs" id="sbQ-Ht-Xla"/>
                         <outlet property="registerButton" destination="3T0-0K-6BW" id="B9e-Wm-qWx"/>
+                        <segue destination="NOR-Bh-RoA" kind="presentation" identifier="showHome" modalPresentationStyle="fullScreen" id="ohq-6E-OHR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7pd-RP-ZuM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1842" y="392"/>
+            <point key="canvasLocation" x="1842" y="466"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="95U-OT-jbB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="NOR-Bh-RoA" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ffL-ur-bXf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2797" y="21"/>
         </scene>
         <!--Iniciar Sesión-->
         <scene sceneID="4Kd-tm-Uog">
@@ -222,6 +237,7 @@
                         <outlet property="emailTextField" destination="n7B-qW-wRm" id="Fl9-MS-llI"/>
                         <outlet property="loginButton" destination="VM9-LM-R4K" id="ebh-Ib-J0e"/>
                         <outlet property="passwordTextField" destination="kRj-H9-uIb" id="yE8-F7-ccW"/>
+                        <segue destination="NOR-Bh-RoA" kind="presentation" identifier="showHome" modalPresentationStyle="fullScreen" id="nGW-Av-r1d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZI-1k-6K0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -251,4 +267,7 @@
         <image name="bottomImage" width="351.5" height="123"/>
         <image name="loginBg" width="640" height="425"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="nGW-Av-r1d"/>
+    </inferredMetricsTieBreakers>
 </document>
