@@ -8,16 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="CiD-82-FeA">
             <objects>
-                <viewController id="hgt-TZ-QZc" sceneMemberID="viewController">
+                <viewController id="hgt-TZ-QZc" customClass="WelcomeViewController" customModule="PlatziTweets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dad-uM-5wJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBg" translatesAutoresizingMaskIntoConstraints="NO" id="JLl-Bg-fwv">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896.00000000000011"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U8L-bC-zX5">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -53,6 +53,9 @@
                                         <state key="normal" title="Registro">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="cvg-dh-UYU" kind="show" id="f5N-YW-UlL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.5467374559859155" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -85,30 +88,84 @@
                         <viewLayoutGuide key="safeArea" id="vI6-wM-3vF"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZZ3-Jn-eQV"/>
+                    <connections>
+                        <outlet property="loginButton" destination="Adk-hd-4Bn" id="gh9-r9-jto"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J3m-L3-3lx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="837.68115942028987" y="-35.491071428571423"/>
         </scene>
-        <!--View Controller-->
+        <!--Registro-->
         <scene sceneID="WqZ-9q-SkE">
             <objects>
-                <viewController id="cvg-dh-UYU" sceneMemberID="viewController">
+                <viewController id="cvg-dh-UYU" customClass="RegisterViewController" customModule="PlatziTweets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zo5-vr-TeT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wUb-zz-wL4">
+                                <rect key="frame" x="20" y="168.5" width="374" height="189"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5XW-Cv-HpB">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre y Apellido" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GVd-h3-ma8">
+                                        <rect key="frame" x="0.0" y="44" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fTD-1D-3Fs">
+                                        <rect key="frame" x="0.0" y="88" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3T0-0K-6BW">
+                                        <rect key="frame" x="0.0" y="132" width="374" height="57"/>
+                                        <color key="backgroundColor" red="0.30083292719999999" green="0.8034000993" blue="0.3646270633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="57" id="jaZ-P2-ALy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Registro">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottomImage" translatesAutoresizingMaskIntoConstraints="NO" id="eQX-KJ-bKw">
+                                <rect key="frame" x="0.0" y="771" width="414" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="Frb-Ph-IKH"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vDw-dO-84R" firstAttribute="trailing" secondItem="wUb-zz-wL4" secondAttribute="trailing" constant="20" id="PJ2-26-A8w"/>
+                            <constraint firstItem="wUb-zz-wL4" firstAttribute="top" secondItem="vDw-dO-84R" secondAttribute="top" constant="20" id="QT3-3H-crj"/>
+                            <constraint firstItem="wUb-zz-wL4" firstAttribute="leading" secondItem="vDw-dO-84R" secondAttribute="leading" constant="20" id="SeG-34-b9n"/>
+                            <constraint firstItem="eQX-KJ-bKw" firstAttribute="leading" secondItem="vDw-dO-84R" secondAttribute="leading" id="XAN-Hc-XKL"/>
+                            <constraint firstItem="eQX-KJ-bKw" firstAttribute="trailing" secondItem="vDw-dO-84R" secondAttribute="trailing" id="fGF-Qk-DZC"/>
+                            <constraint firstAttribute="bottom" secondItem="eQX-KJ-bKw" secondAttribute="bottom" id="onQ-E9-sjA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vDw-dO-84R"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Registro" id="Uub-Qf-do2"/>
+                    <connections>
+                        <outlet property="registerButton" destination="3T0-0K-6BW" id="B9e-Wm-qWx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7pd-RP-ZuM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1797.1014492753625" y="433.92857142857139"/>
+            <point key="canvasLocation" x="1842" y="392"/>
         </scene>
         <!--Iniciar Sesión-->
         <scene sceneID="4Kd-tm-Uog">
             <objects>
-                <viewController id="gcu-1r-BDB" sceneMemberID="viewController">
+                <viewController id="gcu-1r-BDB" customClass="LoginViewController" customModule="PlatziTweets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bwq-Dh-6K7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,6 +193,9 @@
                                         <state key="normal" title="Iniciar Sesión">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginButtonAction" destination="gcu-1r-BDB" eventType="touchUpInside" id="zH0-3S-8HY"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -158,6 +218,11 @@
                         <viewLayoutGuide key="safeArea" id="Qpl-cO-d3p"/>
                     </view>
                     <navigationItem key="navigationItem" title="Iniciar Sesión" id="F3M-w6-yA8"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="n7B-qW-wRm" id="Fl9-MS-llI"/>
+                        <outlet property="loginButton" destination="VM9-LM-R4K" id="ebh-Ib-J0e"/>
+                        <outlet property="passwordTextField" destination="kRj-H9-uIb" id="yE8-F7-ccW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZI-1k-6K0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -169,7 +234,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qrg-c6-v45" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="0BI-Al-kWa">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
