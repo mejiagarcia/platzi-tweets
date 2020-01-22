@@ -24,7 +24,7 @@
                                 <rect key="frame" x="299" y="728" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="hwS-q6-NAp" kind="presentation" id="1XT-1h-lsA"/>
+                                    <segue destination="hwS-q6-NAp" kind="presentation" modalPresentationStyle="fullScreen" id="1XT-1h-lsA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -53,24 +53,24 @@
             <objects>
                 <viewController id="hwS-q6-NAp" customClass="AddPostViewController" customModule="PlatziTweets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="03S-tu-VCK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nuevo Tweet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iw5-II-3a5">
-                                <rect key="frame" x="20" y="10" width="335" height="43"/>
+                                <rect key="frame" x="20" y="54" width="335" height="43"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cv-wy-OWj">
-                                <rect key="frame" x="312" y="16.666666666666671" width="43" height="30.000000000000004"/>
+                                <rect key="frame" x="312" y="60.666666666666657" width="43" height="30"/>
                                 <state key="normal" title="Volver"/>
                                 <connections>
                                     <action selector="dismissAction" destination="hwS-q6-NAp" eventType="touchUpInside" id="YdX-xc-U2w"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FtJ-Be-bkK">
-                                <rect key="frame" x="20" y="63" width="335" height="187"/>
+                                <rect key="frame" x="20" y="107" width="335" height="187"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kMn-zb-5bp">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="120"/>
@@ -100,7 +100,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottomImage" translatesAutoresizingMaskIntoConstraints="NO" id="Bsg-go-vLG">
-                                <rect key="frame" x="0.0" y="633" width="375" height="125"/>
+                                <rect key="frame" x="0.0" y="687" width="375" height="125"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="125" id="fIL-yI-CwT"/>
                                 </constraints>
