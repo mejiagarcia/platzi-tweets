@@ -31,6 +31,7 @@
 		2CF5162A23D8951700383B68 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF5162823D8951700383B68 /* TweetTableViewCell.swift */; };
 		2CF5162B23D8951700383B68 /* TweetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CF5162923D8951700383B68 /* TweetTableViewCell.xib */; };
 		2CF5162D23D8A05700383B68 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF5162C23D8A05700383B68 /* AddPostViewController.swift */; };
+		2CF5162F23D8BCA900383B68 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF5162E23D8BCA900383B68 /* GoogleService-Info.plist */; };
 		56A3EBCADD5764DFF80A93DA /* Pods_PlatziTweets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69DC717E3BCA3854210BF7A7 /* Pods_PlatziTweets.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		2CF5162823D8951700383B68 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		2CF5162923D8951700383B68 /* TweetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TweetTableViewCell.xib; sourceTree = "<group>"; };
 		2CF5162C23D8A05700383B68 /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
+		2CF5162E23D8BCA900383B68 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		69DC717E3BCA3854210BF7A7 /* Pods_PlatziTweets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlatziTweets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2585160DCAE0BBA75AEE756 /* Pods-PlatziTweets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlatziTweets.release.xcconfig"; path = "Target Support Files/Pods-PlatziTweets/Pods-PlatziTweets.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +119,7 @@
 		2CB2B54F23D75BD600E5DF76 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				2CF5162E23D8BCA900383B68 /* GoogleService-Info.plist */,
 				2CF5162123D888A200383B68 /* EndPoints.swift */,
 				2CF5160C23D8870000383B68 /* Models */,
 				2CB2B53623D757BB00E5DF76 /* AppDelegate.swift */,
@@ -274,6 +277,7 @@
 				2CB2B54023D757BC00E5DF76 /* Assets.xcassets in Resources */,
 				2CB2B55323D75BFA00E5DF76 /* Welcome.storyboard in Resources */,
 				2CB2B55C23D76AD700E5DF76 /* Home.storyboard in Resources */,
+				2CF5162F23D8BCA900383B68 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
