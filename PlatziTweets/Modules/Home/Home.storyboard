@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CNL-3f-ZYe">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -13,18 +13,27 @@
             <objects>
                 <viewController id="Rdc-Rr-jH5" customClass="HomeViewController" customModule="PlatziTweets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gls-ix-7Ow">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h02-EJ-hYR">
-                                <rect key="frame" x="0.0" y="20" width="414" height="856"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="772"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hw-In-Bqp">
+                                <rect key="frame" x="299" y="728" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="hwS-q6-NAp" kind="presentation" id="1XT-1h-lsA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="h02-EJ-hYR" secondAttribute="bottom" constant="20" symbolic="YES" id="7N0-ib-dTD"/>
+                            <constraint firstItem="2s5-Ww-xzi" firstAttribute="bottom" secondItem="1hw-In-Bqp" secondAttribute="bottom" constant="20" id="7l9-li-7Kn"/>
                             <constraint firstItem="h02-EJ-hYR" firstAttribute="trailing" secondItem="2s5-Ww-xzi" secondAttribute="trailing" id="YRV-YG-bY6"/>
+                            <constraint firstItem="1hw-In-Bqp" firstAttribute="trailing" secondItem="2s5-Ww-xzi" secondAttribute="trailing" constant="-30" id="m4S-Ix-3vd"/>
                             <constraint firstItem="h02-EJ-hYR" firstAttribute="leading" secondItem="2s5-Ww-xzi" secondAttribute="leading" id="nti-Qz-VkU"/>
                             <constraint firstItem="h02-EJ-hYR" firstAttribute="top" secondItem="gls-ix-7Ow" secondAttribute="top" constant="20" symbolic="YES" id="pf2-jD-x1M"/>
                         </constraints>
@@ -39,13 +48,95 @@
             </objects>
             <point key="canvasLocation" x="676.81159420289862" y="41.517857142857139"/>
         </scene>
+        <!--Add Post View Controller-->
+        <scene sceneID="NsY-eb-BTs">
+            <objects>
+                <viewController id="hwS-q6-NAp" customClass="AddPostViewController" customModule="PlatziTweets" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="03S-tu-VCK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nuevo Tweet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iw5-II-3a5">
+                                <rect key="frame" x="20" y="10" width="335" height="43"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cv-wy-OWj">
+                                <rect key="frame" x="312" y="16.666666666666671" width="43" height="30.000000000000004"/>
+                                <state key="normal" title="Volver"/>
+                                <connections>
+                                    <action selector="dismissAction" destination="hwS-q6-NAp" eventType="touchUpInside" id="YdX-xc-U2w"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FtJ-Be-bkK">
+                                <rect key="frame" x="20" y="63" width="335" height="187"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kMn-zb-5bp">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="120"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="0.308043573943662" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="yai-xT-HE5"/>
+                                        </constraints>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQr-fY-gAT">
+                                        <rect key="frame" x="0.0" y="140" width="335" height="47"/>
+                                        <color key="backgroundColor" red="0.30083292719999999" green="0.8034000993" blue="0.3646270633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="47" id="GgP-Qq-Np0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Publicar!">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addPostAction" destination="hwS-q6-NAp" eventType="touchUpInside" id="Rta-DP-BcI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottomImage" translatesAutoresizingMaskIntoConstraints="NO" id="Bsg-go-vLG">
+                                <rect key="frame" x="0.0" y="633" width="375" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="fIL-yI-CwT"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="rrt-Eo-TCv" firstAttribute="trailing" secondItem="5cv-wy-OWj" secondAttribute="trailing" constant="20" id="9Bs-tk-j67"/>
+                            <constraint firstItem="iw5-II-3a5" firstAttribute="top" secondItem="rrt-Eo-TCv" secondAttribute="top" constant="10" id="9z4-cl-JL9"/>
+                            <constraint firstItem="Bsg-go-vLG" firstAttribute="trailing" secondItem="rrt-Eo-TCv" secondAttribute="trailing" id="JJT-nh-bOB"/>
+                            <constraint firstItem="rrt-Eo-TCv" firstAttribute="trailing" secondItem="iw5-II-3a5" secondAttribute="trailing" constant="20" id="Lom-u3-tat"/>
+                            <constraint firstItem="FtJ-Be-bkK" firstAttribute="leading" secondItem="rrt-Eo-TCv" secondAttribute="leading" constant="20" id="Meg-U8-s3P"/>
+                            <constraint firstItem="5cv-wy-OWj" firstAttribute="centerY" secondItem="iw5-II-3a5" secondAttribute="centerY" id="Sjz-Rf-woe"/>
+                            <constraint firstAttribute="bottom" secondItem="Bsg-go-vLG" secondAttribute="bottom" id="dWq-j6-d8k"/>
+                            <constraint firstItem="rrt-Eo-TCv" firstAttribute="trailing" secondItem="FtJ-Be-bkK" secondAttribute="trailing" constant="20" id="ed7-xX-3Ze"/>
+                            <constraint firstItem="Bsg-go-vLG" firstAttribute="leading" secondItem="rrt-Eo-TCv" secondAttribute="leading" id="tCe-eF-Jsi"/>
+                            <constraint firstItem="iw5-II-3a5" firstAttribute="leading" secondItem="rrt-Eo-TCv" secondAttribute="leading" constant="20" id="tkX-Mx-rqT"/>
+                            <constraint firstItem="FtJ-Be-bkK" firstAttribute="top" secondItem="iw5-II-3a5" secondAttribute="bottom" constant="10" id="zIF-Gb-8a4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rrt-Eo-TCv"/>
+                    </view>
+                    <connections>
+                        <outlet property="postTextView" destination="kMn-zb-5bp" id="sRm-PG-j6j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hd6-xu-lE3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1542.0289855072465" y="466.74107142857139"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ffu-3k-aTp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CNL-3f-ZYe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="pId-d2-oya">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -58,4 +149,7 @@
             <point key="canvasLocation" x="-233.33333333333334" y="41.517857142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bottomImage" width="351.5" height="123"/>
+    </resources>
 </document>
