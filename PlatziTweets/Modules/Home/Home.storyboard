@@ -11,14 +11,29 @@
         <!--Tweets-->
         <scene sceneID="nCq-Jd-WBn">
             <objects>
-                <viewController id="Rdc-Rr-jH5" sceneMemberID="viewController">
+                <viewController id="Rdc-Rr-jH5" customClass="HomeViewController" customModule="PlatziTweets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gls-ix-7Ow">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h02-EJ-hYR">
+                                <rect key="frame" x="0.0" y="20" width="414" height="856"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="h02-EJ-hYR" secondAttribute="bottom" constant="20" symbolic="YES" id="7N0-ib-dTD"/>
+                            <constraint firstItem="h02-EJ-hYR" firstAttribute="trailing" secondItem="2s5-Ww-xzi" secondAttribute="trailing" id="YRV-YG-bY6"/>
+                            <constraint firstItem="h02-EJ-hYR" firstAttribute="leading" secondItem="2s5-Ww-xzi" secondAttribute="leading" id="nti-Qz-VkU"/>
+                            <constraint firstItem="h02-EJ-hYR" firstAttribute="top" secondItem="gls-ix-7Ow" secondAttribute="top" constant="20" symbolic="YES" id="pf2-jD-x1M"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2s5-Ww-xzi"/>
                     </view>
                     <navigationItem key="navigationItem" title="Tweets" id="OEk-o9-Ylh"/>
+                    <connections>
+                        <outlet property="tableView" destination="h02-EJ-hYR" id="ScV-oW-gTP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8G-OI-AvO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
