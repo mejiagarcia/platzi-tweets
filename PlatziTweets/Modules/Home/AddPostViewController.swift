@@ -23,7 +23,7 @@ class AddPostViewController: UIViewController {
     }
     
     @IBAction func addPostAction() {
-        savePost()
+        uploadPhotoToFirebase()
     }
     
     @IBAction func dismissAction() {
@@ -95,8 +95,9 @@ class AddPostViewController: UIViewController {
                     }
                     
                     // obtener la URL de descarga
-                    folderReference.downloadURL { (url: URL?, error: Error?) in
-                        print(url?.absoluteString ?? "")
+                    folderReference.downloadURL { (url: URL?, errror: Error?) in
+                        let downloadUrl = url?.absoluteString ?? ""
+                        self.savePost(imageUrl: downloadUrl)
                     }
                 }
                 
@@ -104,14 +105,9 @@ class AddPostViewController: UIViewController {
         }
     }
     
-    private func savePost() {
-        uploadPhotoToFirebase()
-        
-        return
-        
-        
+    private func savePost(imageUrl: String?) {
         // 1. Crear request
-        let request = PostRequest(text: postTextView.text, imageUrl: nil, videoUrl: nil, location: nil)
+        let request = PostRequest(text: postTextView.text, imageUrl: imageUrl, videoUrl: nil, location: nil)
         
         // 2. Indicar carga al usuario
         SVProgressHUD.show()
