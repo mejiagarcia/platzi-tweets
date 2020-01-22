@@ -105,7 +105,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wUb-zz-wL4">
-                                <rect key="frame" x="20" y="168.5" width="374" height="189"/>
+                                <rect key="frame" x="20" y="160" width="374" height="189"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5XW-Cv-HpB">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -250,7 +250,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qrg-c6-v45" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="0BI-Al-kWa">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -268,6 +268,6 @@
         <image name="loginBg" width="640" height="425"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nGW-Av-r1d"/>
+        <segue reference="ohq-6E-OHR"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -62,21 +62,19 @@ class LoginViewController: UIViewController {
                     
                     switch response {
                     case .success(let user):
-                        NotificationBanner(subtitle: "Bienveido \(user.user.names)", style: .success).show()
+                        self.performSegue(withIdentifier: "showHome", sender: nil)
                         
                     case .error(let error):
-                        return
-                        // todo lo malo :(
+                        NotificationBanner(title: "Error",
+                                           subtitle: error.localizedDescription,
+                                           style: .danger).show()
                         
                     case .errorResult(let entity):
-                        return
-                        // error pero no tan malo :)
+                        NotificationBanner(title: "Error",
+                                           subtitle: entity.error,
+                                           style: .warning).show()
                     }
             
         }
-        
-        // performSegue(withIdentifier: "showHome", sender: nil)
-        
-        // Iniciar sesión aquí!
     }
 }
