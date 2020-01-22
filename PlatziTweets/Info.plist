@@ -39,5 +39,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    
+    
+    <key>NSCameraUsageDescription</key>
+    <string>Usaremos la cámara para publicar tu Tweet.</string>
+    
 </dict>
 </plist>

@@ -119,8 +119,11 @@ extension HomeViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Guardar el correo del usuario y validar contra uno real
-        return dataSource[indexPath.row].author.email != "test@test.com"
+        // Obtener el correo guardado de los user defaults
+        let storedEmail = UserDefaults.standard.string(forKey: "email-saved")
+        
+        // Sólo permitimos borrar el post cuando el autor sea el mismo de la sesión
+        return dataSource[indexPath.row].author.email == storedEmail
     }
 }
 

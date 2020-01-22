@@ -69,6 +69,10 @@ class RegisterViewController: UIViewController {
                     switch response {
                     case .success(let user):
                         self.performSegue(withIdentifier: "showHome", sender: nil)
+                        
+                        // Guardamos el correo en UserDefaults!
+                        UserDefaults.standard.set(user.user.email, forKey: "email-saved")
+                        
                         SimpleNetworking.setAuthenticationHeader(prefix: "", token: user.token)
                         
                     case .error(let error):

@@ -14,8 +14,13 @@ import NotificationBannerSwift
 class AddPostViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var postTextView: UITextView!
+    @IBOutlet weak var previewImageView: UIImageView!
     
     // MARK: - IBActions
+    @IBAction func openCameraAction() {
+        openCamera()
+    }
+    
     @IBAction func addPostAction() {
         savePost()
     }
@@ -24,8 +29,26 @@ class AddPostViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    // MARK: - Properties
+    private var imagePicker: UIImagePickerController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    private func openCamera() {
+        imagePicker = UIImagePickerController()
+        imagePicker?.sourceType = .camera
+        imagePicker?.cameraFlashMode = .off
+        imagePicker?.cameraCaptureMode = .photo
+        imagePicker?.allowsEditing = true
+        imagePicker?.delegate = self
+        
+        guard let imagePicker = imagePicker else {
+            return
+        }
+        
+        present(imagePicker, animated: true, completion: nil)
     }
     
     private func savePost() {
@@ -58,5 +81,24 @@ class AddPostViewController: UIViewController {
                     }
                     
         }
+    }
+}
+
+// MARK: - UIImagePickerControllerDelegate
+extension AddPostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        // Cerrar cámara
+        imagePicker?.dismiss(animated: true, completion: nil)
+        
+        if info.keys.contains(.originalImage) {
+            previewImageView.isHidden = false
+            
+            // Obtenemos la imagen tomada
+            previewImageView.image = info[.originalImage] as? UIImage
+        }
+        
     }
 }
