@@ -33,7 +33,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet del desarrollador" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYs-5g-HEk">
-                                <rect key="frame" x="0.0" y="71.5" width="161" height="18"/>
+                                <rect key="frame" x="0.0" y="71.5" width="290" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -45,7 +45,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RkB-tz-qPw">
-                                <rect key="frame" x="0.0" y="327" width="103" height="22"/>
+                                <rect key="frame" x="0.0" y="327" width="310" height="22"/>
                                 <color key="tintColor" red="0.30083292719999999" green="0.8034000993" blue="0.3646270633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Ver Video" image="video.fill" catalog="system">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -58,6 +58,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="RkB-tz-qPw" secondAttribute="trailing" id="OT8-a7-ZU4"/>
+                            <constraint firstItem="GYs-5g-HEk" firstAttribute="leading" secondItem="uoP-7U-R6T" secondAttribute="leading" id="a79-46-2c9"/>
+                            <constraint firstAttribute="trailing" secondItem="GYs-5g-HEk" secondAttribute="trailing" constant="20" symbolic="YES" id="bQR-YS-Xco"/>
+                            <constraint firstItem="RkB-tz-qPw" firstAttribute="leading" secondItem="uoP-7U-R6T" secondAttribute="leading" constant="20" symbolic="YES" id="gDU-Ck-srC"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
