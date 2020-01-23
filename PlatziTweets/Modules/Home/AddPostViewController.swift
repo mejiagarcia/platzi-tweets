@@ -19,15 +19,46 @@ class AddPostViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var postTextView: UITextView!
     @IBOutlet weak var previewImageView: UIImageView!
+    @IBOutlet weak var videoButton: UIButton!
     
     // MARK: - IBActions
     @IBAction func openCameraAction() {
-        openCamera()
+        let alert = UIAlertController(title: "Cámara",
+                                      message: "Selecciona una opción",
+                                      preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Foto", style: .default, handler: { _ in
+            self.openCamera()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Video", style: .default, handler: { _ in
+            self.openVideoCamera()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .destructive, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func addPostAction() {
-        openVideoCamera()
+        uploadVideoToFirebase()
+        
         // uploadPhotoToFirebase()
+    }
+    
+    @IBAction func openPreviewAction() {
+        guard let currentVideoURL = currentVideoURL else {
+            return
+        }
+        
+        let avPlayer = AVPlayer(url: currentVideoURL)
+        
+        let avPlayerController = AVPlayerViewController()
+        avPlayerController.player = avPlayer
+        
+        present(avPlayerController, animated: true) {
+            avPlayerController.player?.play()
+        }
     }
     
     @IBAction func dismissAction() {
@@ -40,6 +71,8 @@ class AddPostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        videoButton.isHidden = true
     }
     
     private func openVideoCamera() {
@@ -112,7 +145,7 @@ class AddPostViewController: UIViewController {
                     if let error = error {
                         NotificationBanner(title: "Error",
                                            subtitle: error.localizedDescription,
-                                            style: .warning).show()
+                                           style: .warning).show()
                         
                         return
                     }
@@ -120,7 +153,8 @@ class AddPostViewController: UIViewController {
                     // obtener la URL de descarga
                     folderReference.downloadURL { (url: URL?, errror: Error?) in
                         let downloadUrl = url?.absoluteString ?? ""
-                        self.savePost(imageUrl: downloadUrl)
+                        
+                        self.savePost(imageUrl: downloadUrl, videoUrl: nil)
                     }
                 }
                 
@@ -128,9 +162,64 @@ class AddPostViewController: UIViewController {
         }
     }
     
-    private func savePost(imageUrl: String?) {
+    // RETO: Volver estas dos funciones una sola con ayuda de parametros!
+    
+    private func uploadVideoToFirebase() {
+        // 1. Asegurarnos de que el video exista
+        // 2. convertir en Data el video
+        guard
+            let currentVideoSavedURL = currentVideoURL,
+            let videoData: Data = try? Data(contentsOf: currentVideoSavedURL) else {
+                
+                return
+        }
+        
+        SVProgressHUD.show()
+        
+        // 3. Configuración para guard la foto en firebase
+        let metaDataConfig = StorageMetadata()
+        metaDataConfig.contentType = "video/MP4"
+        
+        // 4. Referencia al storage de firebase
+        let storage = Storage.storage()
+        
+        // 5. Crear nombre de la imagen a subir
+        let videoName = Int.random(in: 100...1000)
+        
+        // 6. Referencia a la carpeta donde se va a guardar la foto
+        let folderReference = storage.reference(withPath: "video-tweets/\(videoName).mp4")
+        
+        // 7. Subir el video a Firebase
+        
+        DispatchQueue.global(qos: .background).async {
+            folderReference.putData(videoData, metadata: metaDataConfig) { (metaData: StorageMetadata?, error: Error?) in
+                
+                DispatchQueue.main.async {
+                    // Detener la carga
+                    SVProgressHUD.dismiss()
+                    
+                    if let error = error {
+                        NotificationBanner(title: "Error",
+                                           subtitle: error.localizedDescription,
+                                           style: .warning).show()
+                        
+                        return
+                    }
+                    
+                    // obtener la URL de descarga
+                    folderReference.downloadURL { (url: URL?, errror: Error?) in
+                        let downloadUrl = url?.absoluteString ?? ""
+                        
+                        self.savePost(imageUrl: nil, videoUrl: downloadUrl)
+                    }
+                }
+            }
+        }
+    }
+    
+    private func savePost(imageUrl: String?, videoUrl: String?) {
         // 1. Crear request
-        let request = PostRequest(text: postTextView.text, imageUrl: imageUrl, videoUrl: nil, location: nil)
+        let request = PostRequest(text: postTextView.text, imageUrl: imageUrl, videoUrl: videoUrl, location: nil)
         
         // 2. Indicar carga al usuario
         SVProgressHUD.show()
@@ -180,14 +269,8 @@ extension AddPostViewController: UIImagePickerControllerDelegate, UINavigationCo
         
         // aquí capturamos la url del video
         if info.keys.contains(.mediaURL), let recordedVideoUrl = (info[.mediaURL] as? URL)?.absoluteURL {
-            let avPlayer = AVPlayer(url: recordedVideoUrl)
-            
-            let avPlayerController = AVPlayerViewController()
-            avPlayerController.player = avPlayer
-            
-            present(avPlayerController, animated: true) {
-                avPlayerController.player?.play()
-            }
+            videoButton.isHidden = false
+            currentVideoURL = recordedVideoUrl
         }
     }
 }
