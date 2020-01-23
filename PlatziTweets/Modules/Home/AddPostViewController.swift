@@ -42,9 +42,19 @@ class AddPostViewController: UIViewController {
     }
     
     @IBAction func addPostAction() {
-        uploadVideoToFirebase()
+        if currentVideoURL != nil {
+            uploadVideoToFirebase()
+            
+            return
+        }
         
-        // uploadPhotoToFirebase()
+        if previewImageView.image != nil {
+            uploadPhotoToFirebase()
+            
+            return
+        }
+        
+        savePost(imageUrl: nil, videoUrl: nil)
     }
     
     @IBAction func openPreviewAction() {
@@ -235,8 +245,19 @@ class AddPostViewController: UIViewController {
     }
     
     private func savePost(imageUrl: String?, videoUrl: String?) {
+        // Crear un request de localización
+        var postLocation: PostRequestLocation?
+        
+        if let userLocation = userLocation {
+            postLocation = PostRequestLocation(latitude: userLocation.coordinate.latitude,
+                                               longitude: userLocation.coordinate.longitude)
+        }
+        
         // 1. Crear request
-        let request = PostRequest(text: postTextView.text, imageUrl: imageUrl, videoUrl: videoUrl, location: nil)
+        let request = PostRequest(text: postTextView.text,
+                                  imageUrl: imageUrl,
+                                  videoUrl: videoUrl,
+                                  location: postLocation)
         
         // 2. Indicar carga al usuario
         SVProgressHUD.show()
