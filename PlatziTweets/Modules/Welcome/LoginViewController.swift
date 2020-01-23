@@ -11,6 +11,27 @@ import NotificationBannerSwift
 import Simple_Networking
 import SVProgressHUD
 
+// Crear nuestro propio color que funcione con dark mode
+
+extension UIColor {
+    static let customGreen: UIColor = {
+        if #available(iOS 13.0, *) {
+            return UIColor { (trait: UITraitCollection) -> UIColor in
+                if trait.userInterfaceStyle == .dark {
+                    // aqui estamos en dark mode
+                    return .white
+                } else {
+                    // aquío estamos en light mode
+                    return .green
+                }
+            }
+        } else {
+            // aquí es menor de iOS 13
+            return .green
+        }
+    }()
+}
+
 class LoginViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var loginButton: UIButton!
@@ -33,6 +54,12 @@ class LoginViewController: UIViewController {
     
     private func setupUI() {
         loginButton.layer.cornerRadius = 25
+        
+        loginButton.backgroundColor = UIColor.customGreen
+        
+        if #available(iOS 13.0, *) {
+            //overrideUserInterfaceStyle = .light
+        }
     }
     
     private func performLogin() {
